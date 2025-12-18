@@ -27,7 +27,6 @@ dnf5 install -y openrgb
 # dnf5 -y copr disable ublue-os/staging
 
 dnf5 copr enable -y scottames/ghostty
-dnf5 check-update
 dnf5 install -y ghostty
 dnf5 copr disable -y scottames/ghostty
 
