@@ -30,6 +30,5 @@ dnf5 copr enable -y scottames/ghostty
 dnf5 install -y ghostty
 dnf5 copr disable -y scottames/ghostty
 
-# yolo the nix installer
-curl -fsSL https://install.determinate.systems/nix | sh -s -- install linux --force --no-start-daemon --no-confirm --no-modify-profile
-# --no-start-daemon
+mkdir /nix
+chmod 755 /nix
