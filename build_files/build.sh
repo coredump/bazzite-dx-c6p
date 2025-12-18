@@ -9,8 +9,17 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
-# this installs a package from fedora repos
-dnf5 install -y tmux 
+
+# adding 1password stuff
+rpm --import https://downloads.1password.com/linux/keys/1password.asc
+echo -e "[1password]\nname=1Password Stable Channel\nbaseurl=https://downloads.1password.com/linux/rpm/stable/\$basearch\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=\"https://downloads.1password.com/linux/keys/1password.asc\"" > /etc/yum.repos.d/1password.repo
+
+# installing
+dnf5 install -y zsh
+dnf5 install -y kvantum
+dnf5 install -y openrgb
+dnf5 install -y 1password
+
 
 # Use a COPR Example:
 #
@@ -19,6 +28,10 @@ dnf5 install -y tmux
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
 
-#### Example for enabling a System Unit File
+sudo dnf5 copr enable scottames/ghostty
+dnf5 check-update
+dnf5 install -y ghostty
+sudo dnf5 copr disable scottames/ghostty
 
-systemctl enable podman.socket
+# yolo the nix installer
+curl -fsSL https://install.determinate.systems/nix | sh -s -- install
