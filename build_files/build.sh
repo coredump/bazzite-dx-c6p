@@ -31,4 +31,5 @@ dnf5 install -y ghostty
 dnf5 copr disable -y scottames/ghostty
 
 # yolo the nix installer
-curl -fsSL https://install.determinate.systems/nix | sh -s -- install ostree --no-confirm --no-start-daemon
+curl -fsSL https://install.determinate.systems/nix | sh -s -- install ostree --no-confirm --no-modify-profile
+# --no-start-daemon
