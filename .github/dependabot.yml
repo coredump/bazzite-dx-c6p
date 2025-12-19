@@ -15,4 +15,4 @@ updates:
     # Look for a `Dockerfile` in the `root` directory
     directory: "/"
     schedule:
-      interval: "daily"
+      cronjob: '5 10 * * 0'  # 10:05am UTC everyday
